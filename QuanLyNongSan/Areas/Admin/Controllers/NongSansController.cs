@@ -48,7 +48,7 @@ namespace QuanLyNongSan.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Create([Bind(Include = "ID,TenNS,IDLoaiNS,MoTaNgan,MotaChiTiet,NgayTao,NguoiTao,NgayCapNhat,NguoiCapNhat,HinhAnhDaiDien")] NongSan nongSan)
+        public ActionResult Create([Bind(Include = "ID,TenNS,IDLoaiNS,MoTaNgan,MotaChiTiet,NgayTao,NguoiTao,NgayCapNhat,NguoiCapNhat,HinhAnhDaiDien,Price")] NongSan nongSan)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace QuanLyNongSan.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Edit([Bind(Include = "ID,TenNS,IDLoaiNS,MoTaNgan,MotaChiTiet,NgayTao,NguoiTao,NgayCapNhat,NguoiCapNhat,HinhAnhDaiDien")] NongSan nongSan)
+        public ActionResult Edit([Bind(Include = "ID,TenNS,IDLoaiNS,MoTaNgan,MotaChiTiet,NgayTao,NguoiTao,NgayCapNhat,NguoiCapNhat,HinhAnhDaiDien,Price")] NongSan nongSan)
         {
             if (ModelState.IsValid)
             {

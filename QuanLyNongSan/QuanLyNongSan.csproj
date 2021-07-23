@@ -1242,6 +1242,7 @@
     <Content Include="Areas\Admin\Scripts\jquery-ui.js" />
     <Content Include="Areas\Admin\Scripts\main.js" />
     <Content Include="Areas\Admin\Scripts\tagUI.js" />
+    <Content Include="Common\neworder.html" />
     <Content Include="Content\AdminStyle.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -1425,7 +1426,6 @@
     <Content Include="Areas\Admin\Views\NguoiDungs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\NongSans\Index.cshtml" />
     <Content Include="Areas\Admin\Views\NongSans\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\NongSans\Create.cshtml" />
     <Content Include="Areas\Admin\Views\NongSans\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\NguoiDungs\Index.cshtml" />
     <Content Include="Areas\Admin\Views\TinTucs\Index.cshtml" />
@@ -1499,6 +1499,7 @@
     <Content Include="Areas\Admin\Content\login\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
     <Content Include="Areas\Admin\Content\login\vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="Areas\Admin\Content\login\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Areas\Admin\Views\NongSans\Create.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -1540,7 +1541,6 @@
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Order\Payment.cshtml" />
     <Content Include="Views\Order\Success.cshtml" />
-    <Content Include="Views\Shared\Header.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

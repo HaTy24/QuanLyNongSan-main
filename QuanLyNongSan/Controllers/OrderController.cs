@@ -161,7 +161,7 @@ namespace QuanLyNongSan.Controllers
             catch (Exception ex)
             {
                 //ghi log
-                return Redirect("/loi-thanh-toan");
+                return Redirect("/Order/Success");
             }
             return Redirect("/hoan-thanh");
         }

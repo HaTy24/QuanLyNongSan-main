@@ -54,7 +54,7 @@
         [StringLength(350)]
         [Display(Name = "Ảnh đại diện")]
         public string HinhAnhDaiDien { get; set; }
-
+        [Display(Name = "Giá")]
         public decimal? Price { get; set; }
 
         public virtual LoaiN LoaiN { get; set; }

@@ -18,7 +18,7 @@ namespace QuanLyNongSan.Controllers
         }
         public PartialViewResult NongSanMoi()
         {
-            var nsm = db.NongSans.OrderByDescending(s => s.ID).ToList().Take(6);
+            var nsm = db.NongSans.OrderByDescending(s => s.ID).ToList();
             return PartialView(nsm);
         }
         [HttpGet]

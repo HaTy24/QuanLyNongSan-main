@@ -60,7 +60,7 @@
                             <td>
 
                                 <input type="button" onclick="GiamValue()" value="-" />
-                                <input type="text" class="txtQuantity" data-id="@item.nongsan.ID" value="@item.Quantity" />
+                                <input style="max-width: 60px; text-align: center !important;" type="text" class="txtQuantity" data-id="@item.nongsan.ID" value="@item.Quantity" />
                                 <input class="text-center" type="text" id="number" value="1" />
                                 <input type="button" onclick="TangValue()" value="+" />
                             </td>
@@ -83,14 +83,16 @@
                             </tr>
                         }*@
                     </table>
-                    <button id="btnContinue" class="btn">Tiếp tục mua hàng</button>
-                    <button id="btnUpdate" class="btn">Cập nhật giỏ hàng</button>
-                    <button id="btnDeleteAll" class="btn">Xoá giỏ hàng</button>
-                    <button id="btnPayment" class="btn">Thanh toán</button>
+                    
+                        <button style="border: 1px solid rgb(0 0 0 / 13%); " id="btnContinue" class="btn" > Tiếp tục mua hàng</button >
+                        <button style="border: 1px solid rgb(0 0 0 / 13%); " id="btnUpdate" class="btn" > Cập nhật giỏ hàng</button >
+                        <button style="border: 1px solid rgb(0 0 0 / 13%); " id="btnDeleteAll" class="btn" > Xoá giỏ hàng</button >
+                        <button style="border: 1px solid rgb(0 0 0 / 13%); " id="btnPayment" class="btn" > Thanh toán</button >
+                       
                 }
                 else
                 {
-                    <span class="alert alert-danger">Chưa có sản phẩm nào trong giỏ hàng</span>}
+                    <span>Chưa có sản phẩm nào trong giỏ hàng</span>}
             </div>
         </div>
 
