@@ -1,0 +1,173 @@
+﻿@model List<QuanLyNongSan.Models.GioHang>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section jsFooter{
+
+    <script src="/Scripts/OrderController.js"></script>
+}
+
+<div id="payNow">
+    <div class="container my-5">
+
+        <!-- ____________________- -->
+
+        <div class="row py-3 main-header">
+            <div class="text-center m-auto ">
+                <h2 class="main-tittle mb-2 ">Giỏ hàng của bạn</h2>
+            </div>
+            <div class="main-header-line text-center d-flex m-auto justify-content-center">
+                <span class="line-box"></span>
+                <i class="fas fa-fan mx-3"></i>
+                <span class="line-box"></span>
+            </div>
+        </div>
+
+        <!-- ____________________________ -->
+
+        <div class="row">
+            <h4>Sản phẩm đã chọn</h4>
+        </div>
+
+        <!-- ___________________________ -->
+
+        <div class="row">
+
+            <div class="table-responsive">
+                @if (Model.Count > 0)
+                {
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Mã sản phẩm</th>
+                            <th scope="col">Sản phẩm</th>
+                            <th scope="col">Đơn giá</th>
+                            <th scope="col" class="txtQuantity">Số lượng(kg)</th>
+                            <th scope="col">Thành tiền</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+
+                            <tr class="product-item-table">
+                                <th scope="row">@item.nongsan.ID</th>
+                                <td>@item.nongsan.TenNS</td>
+                                <td>@item.nongsan.Price.GetValueOrDefault(0).ToString("N0")</td>
+                                <td><input type="text" class="txtQuantity" data-id="@item.nongsan.ID" value="@item.Quantity" /></td>
+                                <td class="pay-money">@((item.nongsan.Price.GetValueOrDefault(0) * item.Quantity).ToString("N0"))</td>
+                                <td>
+                                    <a href="#" data-id="@item.nongsan.ID" class="btn-delete">Xoá</a>
+                                </td>
+
+                            </tr>
+
+                        }
+             
+                        </tbody>
+                               @foreach (var item in Model)
+                        {
+                            <tr class="product-item-table">
+                                <td olspan="5" class="text-end fw-bold">Tổng tiền:@((item.nongsan.Price.GetValueOrDefault(0) * item.Quantity).ToString("N0"))
+<td>
+                            </tr>
+                        }
+                    </table>
+                    <button id="btnContinue" class="btn">Tiếp tục mua hàng</button>
+                    <button id="btnUpdate" class="btn">Cập nhật giỏ hàng</button>
+                    <button id="btnDeleteAll" class="btn">Xoá giỏ hàng</button>
+                    <button id="btnPayment" class="btn">Thanh toán</button>
+                }
+                else
+                {
+                    <span class="alert alert-danger">Chưa có sản phẩm nào trong giỏ hàng</span>}
+            </div>
+        </div>
+
+        <!-- _____________________________- -->
+        <!--<div class="row my-3">
+
+            <div class="col-md-6 mb-3">
+                <h4 class="mb-2">Thông tin khách hàng</h4>
+                <form class="row g-3">
+
+
+
+                    <div class="col-md-12">
+                        <label for="inputEmail4" class="form-label">Họ và tên</label>
+                        <input id="name-customer" type="text" class="form-control" placeholder="Họ và tên">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="inputPassword4" class="form-label">Số điện thoại</label>
+                        <input type="text" class="form-control" placeholder="Số điện thoại">
+                    </div>
+                    <div class="col-12">
+                        <label for="inputAddress" class="form-label">Địa chỉ nhận hàng</label>
+                        <textarea type="text" class="form-control" placeholder="Địa chỉ nhận hàng"></textarea>
+                    </div>
+
+
+
+                </form>
+
+            </div>
+
+            <div class="col-md-6">
+                <h4 class="mb-2">Hình thức thanh toán</h4>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="payFormCheck" id="payFormCheck1" checked>
+                    <label class="form-check-label " for="payFormCheck1">
+                        Thanh toán khi nhận hàng (COD)
+                        <p><i>Nhân viên chúng tôi sẽ liên hệ với quý khách trong thời gian sớm nhất.</i></p>
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="payFormCheck" id="payFormCheck2">
+                    <label class="form-check-label " for="payFormCheck2">
+                        Chuyển khoản ngân hàng
+                        <p><i>Áp dụng cho khách hàng muốn chuyển khoản trực tiếp qua ngân hàng.</i></p>
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="payFormCheck" id="payFormCheck4">
+                    <label class="form-check-label " for="payFormCheck4">
+                        Đến cửa hàng
+                        <p><i>Nhân viên sẽ giữ hàng của bạn đã đặt.</i></p>
+
+                    </label>
+                </div>
+
+
+            </div>
+        </div>-->
+        <!-- _________________________ -->
+        <!--<div class="row text-center">
+            <div class="form-check">
+                <input class="form-check-input float-none" type="checkbox" value="" id="flexCheckPay" checked>
+                <label class="form-check-label" for="flexCheckPay">
+                    Tôi đồng ý với các chính sách trên
+                </label>
+            </div>
+        </div>-->
+        <!-- ___________________________ -->
+        <!--<div class="row my-4 order-btn-group">
+            <div class="col-12 d-flex justify-content-center">
+
+                <button type="submit" class="btn my-bg-color mx-2" data-bs-toggle="modal" data-bs-target="#paySuccess">Đặt hàng</button>
+
+                <a href="@Url.Action("Index","Home")">
+                    <button  type="button" class="btn cont-btn">Tiếp tục mua hàng</button>
+
+                </a>
+            </div>
+        </div>-->
+
+    </div>
+</div>

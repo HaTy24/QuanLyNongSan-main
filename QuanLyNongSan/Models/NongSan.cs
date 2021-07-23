@@ -9,7 +9,12 @@
     [Table("NongSan")]
     public partial class NongSan
     {
-        
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public NongSan()
+        {
+            OrderDetails = new HashSet<OrderDetail>();
+        }
+
         public int ID { get; set; }
 
         [Required]
@@ -50,6 +55,11 @@
         [Display(Name = "Ảnh đại diện")]
         public string HinhAnhDaiDien { get; set; }
 
+        public decimal? Price { get; set; }
+
         public virtual LoaiN LoaiN { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }

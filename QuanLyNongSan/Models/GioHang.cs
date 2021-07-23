@@ -9,6 +9,6 @@ namespace QuanLyNongSan.Models
     public class GioHang
     {
         public NongSan nongsan { set; get; }
-        public int so_luong { set; get; }
+        public int Quantity { set; get; }
     }
 }
