@@ -1473,6 +1473,8 @@ footer .container {
     border-radius: 8px;
     outline: none;
     border: 1px solid rgb(0, 0, 0, .3);
+    max-width: 60px;
+    text-align: center !important;
 }
 
 #payNow .table button {

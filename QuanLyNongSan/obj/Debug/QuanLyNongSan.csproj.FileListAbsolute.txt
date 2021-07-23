@@ -167,4 +167,3 @@ D:\QuanLyNongSan-main\QuanLyNongSan\obj\Debug\QuanLyNongSan.csproj.CoreCompileIn
 D:\QuanLyNongSan-main\QuanLyNongSan\obj\Debug\QuanLyNongSan.csproj.CopyComplete
 D:\QuanLyNongSan-main\QuanLyNongSan\obj\Debug\QuanLyNongSan.dll
 D:\QuanLyNongSan-main\QuanLyNongSan\obj\Debug\QuanLyNongSan.pdb
-D:\QuanLyNongSan-main\QuanLyNongSan\obj\Debug\QuanLyNongSan.csproj.AssemblyReference.cache

@@ -4,12 +4,10 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 @section jsFooter{
 
     <script src="/Scripts/OrderController.js"></script>
 }
-
 <div id="payNow">
     <div class="container my-5">
 
@@ -55,28 +53,35 @@
                         @foreach (var item in Model)
                         {
 
-                            <tr class="product-item-table">
-                                <th scope="row">@item.nongsan.ID</th>
-                                <td>@item.nongsan.TenNS</td>
-                                <td>@item.nongsan.Price.GetValueOrDefault(0).ToString("N0")</td>
-                                <td><input type="text" class="txtQuantity" data-id="@item.nongsan.ID" value="@item.Quantity" /></td>
-                                <td class="pay-money">@((item.nongsan.Price.GetValueOrDefault(0) * item.Quantity).ToString("N0"))</td>
-                                <td>
-                                    <a href="#" data-id="@item.nongsan.ID" class="btn-delete">Xoá</a>
-                                </td>
+                        <tr class="product-item-table">
+                            <th scope="row">@item.nongsan.ID</th>
+                            <td>@item.nongsan.TenNS</td>
+                            <td>@item.nongsan.Price.GetValueOrDefault(0).ToString("N0")</td>
+                            <td>
 
-                            </tr>
+                                <input type="button" onclick="GiamValue()" value="-" />
+                                <input type="text" class="txtQuantity" data-id="@item.nongsan.ID" value="@item.Quantity" />
+                                <input class="text-center" type="text" id="number" value="1" />
+                                <input type="button" onclick="TangValue()" value="+" />
+                            </td>
+                           
+                            <td class="pay-money">@((item.nongsan.Price.GetValueOrDefault(0) * item.Quantity).ToString("N0"))</td>
+                            <td>
+                                <a href="#" data-id="@item.nongsan.ID" class="btn-delete">Xoá</a>
+                            </td>
+
+                        </tr>
 
                         }
              
                         </tbody>
-                               @foreach (var item in Model)
+                     @*          @foreach (var item in Model)
                         {
                             <tr class="product-item-table">
                                 <td olspan="5" class="text-end fw-bold">Tổng tiền:@((item.nongsan.Price.GetValueOrDefault(0) * item.Quantity).ToString("N0"))
 <td>
                             </tr>
-                        }
+                        }*@
                     </table>
                     <button id="btnContinue" class="btn">Tiếp tục mua hàng</button>
                     <button id="btnUpdate" class="btn">Cập nhật giỏ hàng</button>
