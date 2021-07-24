@@ -167,7 +167,6 @@ D:\QuanLyNongSan-main\QuanLyNongSan\obj\Debug\QuanLyNongSan.csproj.CoreCompileIn
 D:\QuanLyNongSan-main\QuanLyNongSan\obj\Debug\QuanLyNongSan.csproj.CopyComplete
 D:\QuanLyNongSan-main\QuanLyNongSan\obj\Debug\QuanLyNongSan.dll
 D:\QuanLyNongSan-main\QuanLyNongSan\obj\Debug\QuanLyNongSan.pdb
-D:\QuanLyNongSan-main\QuanLyNongSan\obj\Debug\QuanLyNongSan.csproj.AssemblyReference.cache
 D:\QuanLyNongSan-main\QuanLyNongSan\bin\Microsoft.AspNetCore.Http.Abstractions.dll
 D:\QuanLyNongSan-main\QuanLyNongSan\bin\Microsoft.AspNetCore.Http.Features.dll
 D:\QuanLyNongSan-main\QuanLyNongSan\bin\Microsoft.AspNetCore.Mvc.Abstractions.dll

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using QuanLyNongSan.Common;
 using QuanLyNongSan.Models;
 
 namespace QuanLyNongSan.Controllers
@@ -54,6 +55,18 @@ namespace QuanLyNongSan.Controllers
                 ViewBag.thongbao = "Không tìm thấy sản phẩm cần tìm";
                 return View();
             }
+        }
+        [ChildActionOnly]
+        public PartialViewResult HeaderCart()
+        {
+            var cart = Session[CommonConstants.CartSession];
+            var list = new List<GioHang>();
+            if (cart != null)
+            {
+                list = (List<GioHang>)cart;
+            }
+
+            return PartialView(list);
         }
     }
 }

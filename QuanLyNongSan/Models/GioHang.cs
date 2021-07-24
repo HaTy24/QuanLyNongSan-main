@@ -10,5 +10,12 @@ namespace QuanLyNongSan.Models
     {
         public NongSan nongsan { set; get; }
         public int Quantity { set; get; }
+        public int ThanhTien
+        {
+            get
+            {
+                return (int)(Quantity * nongsan.Price);
+            }
+        }
     }
 }

@@ -50,30 +50,47 @@
                     </thead>
 
                     <tbody>
+                        @{int total = 0;}
                         @foreach (var item in Model)
                         {
 
+                            <tr class="product-item-table">
+                                <th scope="row">@item.nongsan.ID</th>
+                                <td>@item.nongsan.TenNS</td>
+                                <td>@item.nongsan.Price.GetValueOrDefault(0).ToString("N0")đ</td>
+                                <td>
+                                    <div @*id="formSoluong_@i"*@ class="formsoluong" @*action="@Url.Action("SuaSoLuong","GioHang")" method="get"*@>
+                                        <input class="idsp" type="hidden" name="ID" value="@item.nongsan.ID" />
+                                        <div class="number-input">
+                                            <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="giohangprice"></button>
+                                            <input class="col-lg-4 soluongsp" style="height:30px;" type="number" min="1" step="1" name="soluongmoi" value="@item.Quantity" />
+                                            <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus giohangprice"></button>
+                                        </div>
+                                       
+                                  
+                                    </div>
+
+                                    @*<input style="max-width: 60px; text-align: center !important;" type="text" name="ID" class="txtQuantity" id="@item.nongsan.ID" value="@item.Quantity" />*@
+
+                                </td>
+
+                                <td class="pay-money">@((item.nongsan.Price.GetValueOrDefault(0) * item.Quantity).ToString("N0"))đ</td>
+                                <td>
+                                    <a href="#" data-id="@item.nongsan.ID" class="btn-delete">Xoá</a>
+                                </td>
+
+                            </tr>
+                            total += item.ThanhTien;
+
+                        }
                         <tr class="product-item-table">
-                            <th scope="row">@item.nongsan.ID</th>
-                            <td>@item.nongsan.TenNS</td>
-                            <td>@item.nongsan.Price.GetValueOrDefault(0).ToString("N0")đ</td>
-                            <td>
-
-                                
-                                <input style="max-width: 60px; text-align: center !important;" type="text" class="txtQuantity" data-id="@item.nongsan.ID" value="@item.Quantity" />
-                              
-                            </td>
-
-                            <td class="pay-money">@((item.nongsan.Price.GetValueOrDefault(0) * item.Quantity).ToString("N0"))đ</td>                         
-                            <td>
-                                <a href="#" data-id="@item.nongsan.ID" class="btn-delete">Xoá</a>
-                            </td>
+                            <td colspan="5" class="text-end fw-bold text-danger">Tổng tiền:@total.ToString("#,##0") VNĐ</td>
+                            <td class="fw-bold text-danger pay-money"></td>
 
                         </tr>
 
-                        }
-             
-                        </tbody>
+
+                    </tbody>
                      @*          @foreach (var item in Model)
                         {
                             <tr class="product-item-table">

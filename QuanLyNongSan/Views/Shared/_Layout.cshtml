@@ -42,16 +42,9 @@
                     @using (Html.BeginForm("TimKiemNS", "Home"))
                     {
 
-        <input id="txtTimKiem" name="txtTimKiem" class="form-control btn-search" type="search" placeholder="Tìm kiếm sản phẩm">}
+                <input id="txtTimKiem" name="txtTimKiem" class="form-control btn-search" type="search" placeholder="Tìm kiếm sản phẩm">}
+                    @{ Html.RenderAction("HeaderCart", "Home");}
 
-                    <div class="navbar-user col-lg-4  justify-content-center">
-                        <a href="@Url.Action("Index","Order")">
-                            <div class="navbar-basket ms-2" data-bs-toggle="modal" data-bs-target="#modalCardNoProduct">
-                                <i class="fas fa-cart-arrow-down"></i>
-                                <div class="basket-count">0</div>
-                            </div>
-
-                    </div>
                 </nav>
             </div>
 

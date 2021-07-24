@@ -48,7 +48,7 @@ namespace QuanLyNongSan.Controllers
                 status = true
             });
         }
-        public JsonResult Update(string cartModel)
+      /*  public JsonResult Update(string cartModel)
         {
             List<GioHang> giohang = Session["giohang"] as List<GioHang>;
             var sessionCart = (List<GioHang>)Session[OrderSession];
@@ -66,20 +66,30 @@ namespace QuanLyNongSan.Controllers
             {
                 status = true
             });
-        }
+        }*/
 
-    /*    public RedirectToRouteResult SuaSoLuong(int SanPhamID, int soluongmoi)
+        public ActionResult SuaSoLuong(int ID, int soluongmoi)
         {
             // tìm carditem muon sua
-            List<CartItem> giohang = Session["giohang"] as List<CartItem>;
-            CartItem itemSua = giohang.FirstOrDefault(m => m.SanPhamID == SanPhamID);
+            List<GioHang> giohang = Session["giohang"] as List<GioHang>;
+            GioHang itemSua = giohang.FirstOrDefault(m => m.nongsan.ID.Equals(ID));
             if (itemSua != null)
             {
-                itemSua.SoLuong = soluongmoi;
-            }
-            return RedirectToAction("Index");
+                if (soluongmoi < 1 || soluongmoi > 100)
+                {
 
-        }*/
+                }
+                else
+                {
+                    @ViewBag.GioError = "";
+                    itemSua.Quantity = soluongmoi;
+                    
+                }
+            }
+            return Redirect(Request.UrlReferrer.ToString());
+            /*return RedirectToAction("Index");*/
+
+        }
 
         public ActionResult AddItem(long productId, int quantity)
         {

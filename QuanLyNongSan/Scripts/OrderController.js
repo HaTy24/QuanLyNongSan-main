@@ -33,6 +33,7 @@
                 }
             })
         });
+     
 
         $('#btnDeleteAll').off('click').on('click', function () {
 
@@ -66,3 +67,41 @@
     }
 }
 cart.init();
+
+jQuery(document).ready(function ($) {
+    $(".scroll").click(function (event) {
+        event.preventDefault();
+        $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+    });
+});
+
+jQuery(document).ready(function ($) {
+    $(".switcher-btn").click(function () {
+        $(".switcher-wrapper").toggleClass("switcher-toggled")
+    });
+    $("#page").click(function () {
+        $(".switcher-wrapper").removeClass("switcher-toggled")
+    });
+    $('option').mousedown(function (e) {
+        e.preventDefault();
+        $(this).toggleClass('selected');
+
+        $(this).prop('selected', !$(this).prop('selected'));
+        return false;
+    });
+$('.giohangprice').click(function () {
+    var product_id = $(this).closest('.formsoluong').find('.idsp').val();
+    var soluong = $(this).closest('.formsoluong').find('.soluongsp').val();
+
+    $.ajax({
+        url: '/Order/SuaSoLuong?ID=' + product_id + '&soluongmoi=' + soluong,
+        data: { ID: product_id, soluongmoi: soluong },
+        success: function (data) {
+            $('body').load(location.href);
+        },
+        error: function (data) {
+            alert('Sản phẫm lỗi');
+        }
+    });
+});
+});

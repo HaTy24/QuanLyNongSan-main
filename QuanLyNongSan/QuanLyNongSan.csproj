@@ -172,6 +172,7 @@
     <Compile Include="Areas\Admin\Controllers\NguoiDungsController.cs" />
     <Compile Include="Areas\Admin\Controllers\NongSansController.cs" />
     <Compile Include="Areas\Admin\Controllers\TinTucsController.cs" />
+    <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NongSanController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
@@ -1575,6 +1576,7 @@
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Order\Payment.cshtml" />
     <Content Include="Views\Order\Success.cshtml" />
+    <Content Include="Views\Shared\HeaderCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
