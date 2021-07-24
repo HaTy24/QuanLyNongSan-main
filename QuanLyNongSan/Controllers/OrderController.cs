@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using QuanLyNongSan.Common;
 using QuanLyNongSan.Models;
 using QuanLyNongSan.Models.Dao;
@@ -48,12 +50,12 @@ namespace QuanLyNongSan.Controllers
         }
         public JsonResult Update(string cartModel)
         {
-            var jsonCart = new JavaScriptSerializer().Deserialize<List<GioHang>>(cartModel);
+            List<GioHang> giohang = Session["giohang"] as List<GioHang>;
             var sessionCart = (List<GioHang>)Session[OrderSession];
 
             foreach (var item in sessionCart)
             {
-                var jsonItem = jsonCart.SingleOrDefault(x => x.nongsan.ID == item.nongsan.ID);
+                var jsonItem = giohang.SingleOrDefault(x => x.nongsan.ID == item.nongsan.ID);
                 if (jsonItem != null)
                 {
                     item.Quantity = jsonItem.Quantity;
@@ -65,6 +67,20 @@ namespace QuanLyNongSan.Controllers
                 status = true
             });
         }
+
+    /*    public RedirectToRouteResult SuaSoLuong(int SanPhamID, int soluongmoi)
+        {
+            // tìm carditem muon sua
+            List<CartItem> giohang = Session["giohang"] as List<CartItem>;
+            CartItem itemSua = giohang.FirstOrDefault(m => m.SanPhamID == SanPhamID);
+            if (itemSua != null)
+            {
+                itemSua.SoLuong = soluongmoi;
+            }
+            return RedirectToAction("Index");
+
+        }*/
+
         public ActionResult AddItem(long productId, int quantity)
         {
             var product = new NongSanDao().ViewDetail(productId);
@@ -146,24 +162,15 @@ namespace QuanLyNongSan.Controllers
 
                     total += (item.nongsan.Price.GetValueOrDefault(0) * item.Quantity);
                 }
-                string content = System.IO.File.ReadAllText(Server.MapPath("~/assets/client/template/neworder.html"));
-
-                content = content.Replace("{{CustomerName}}", shipName);
-                content = content.Replace("{{Phone}}", mobile);
-                content = content.Replace("{{Email}}", email);
-                content = content.Replace("{{Address}}", address);
-                content = content.Replace("{{Total}}", total.ToString("N0"));
-                var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
-
-                new MailHelper().SendMail(email, "Đơn hàng mới từ OnlineShop", content);
-                new MailHelper().SendMail(toEmail, "Đơn hàng mới từ OnlineShop", content);
+               
+             
             }
             catch (Exception ex)
             {
                 //ghi log
                 return Redirect("/Order/Success");
             }
-            return Redirect("/hoan-thanh");
+            return Redirect("/Order/Success");
         }
 
         public ActionResult Success()

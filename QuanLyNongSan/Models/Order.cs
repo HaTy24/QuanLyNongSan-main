@@ -18,19 +18,19 @@
         public int ID { get; set; }
 
         public DateTime? CreatedDate { get; set; }
-
+        [Required(ErrorMessage = "Không được để trống")]
         [StringLength(50)]
         [Display(Name = "Họ và Tên")]
         public string ShipName { get; set; }
-
+        [Required(ErrorMessage = "Không được để trống")]
         [StringLength(50)]
         [Display(Name = "Số điện thoại")]
         public string ShipMobile { get; set; }
-
+        [Required(ErrorMessage = "Không được để trống")]
         [StringLength(50)]
         [Display(Name = "Địa chỉ")]
         public string ShipAddress { get; set; }
-
+        [Required(ErrorMessage = "Không được để trống")]
         [StringLength(50)]
         [Display(Name = "Email")]
         public string ShipEmail { get; set; }

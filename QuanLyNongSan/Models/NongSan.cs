@@ -55,6 +55,7 @@
         [Display(Name = "Ảnh đại diện")]
         public string HinhAnhDaiDien { get; set; }
         [Display(Name = "Giá")]
+        [DisplayFormat(DataFormatString = "{0:n0}", ApplyFormatInEditMode = true)]
         public decimal? Price { get; set; }
 
         public virtual LoaiN LoaiN { get; set; }
