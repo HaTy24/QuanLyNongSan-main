@@ -15,7 +15,8 @@
             OrderDetails = new HashSet<OrderDetail>();
         }
 
-        public int ID { get; set; }
+        [StringLength(50)]
+        public string ID { get; set; }
 
         [Required]
         [Display(Name = "Tên nông sản")]
@@ -56,7 +57,8 @@
         public string HinhAnhDaiDien { get; set; }
         [Display(Name = "Giá")]
         [DisplayFormat(DataFormatString = "{0:n0}", ApplyFormatInEditMode = true)]
-        public decimal? Price { get; set; }
+        [StringLength(50)]
+        public string Price { get; set; }
 
         public virtual LoaiN LoaiN { get; set; }
 

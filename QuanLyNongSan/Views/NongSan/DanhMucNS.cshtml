@@ -40,9 +40,10 @@
                                 <h5 class="card-title">@item.TenNS</h5>
                             </a>
                             <div class="pb-3">
-                                <span class="card-text fw-bold"><i class="fas fa-money-bill-wave"></i> @item.Price.GetValueOrDefault(0).ToString("N0") VNĐ</span>
+                                <span class="card-text fw-bold"><i class="fas fa-money-bill-wave"></i> @Int32.Parse(item.Price).ToString("#,##0") VNĐ</span>
                             </div>
-                            <a href="/Order/AddItem?ProductId=@item.ID&quantity=1" class="btn my-bg-color text-white w-100">Đặt hàng</a>
+                            <a href="/GioHang/themvaogio?SanPhamID=@item.ID&quantity=1" class="btn my-bg-color text-white w-100">Đặt hàng</a>
+
                         </div>
                     </div>
                 </a>

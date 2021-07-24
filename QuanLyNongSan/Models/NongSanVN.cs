@@ -12,6 +12,7 @@ namespace QuanLyNongSan.Models
         {
         }
 
+        public virtual DbSet<Custormer> Custormers { get; set; }
         public virtual DbSet<LoaiN> LoaiNS { get; set; }
         public virtual DbSet<NguoiDung> NguoiDungs { get; set; }
         public virtual DbSet<NongSan> NongSans { get; set; }
@@ -21,6 +22,14 @@ namespace QuanLyNongSan.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Custormer>()
+                .Property(e => e.cusPhone)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Custormer>()
+                .Property(e => e.cusEmail)
+                .IsUnicode(false);
+
             modelBuilder.Entity<LoaiN>()
                 .HasMany(e => e.NongSans)
                 .WithRequired(e => e.LoaiN)
@@ -32,8 +41,12 @@ namespace QuanLyNongSan.Models
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<NongSan>()
+                .Property(e => e.ID)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<NongSan>()
                 .Property(e => e.Price)
-                .HasPrecision(18, 0);
+                .IsUnicode(false);
 
             modelBuilder.Entity<NongSan>()
                 .HasMany(e => e.OrderDetails)
@@ -42,7 +55,15 @@ namespace QuanLyNongSan.Models
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Order>()
-                .Property(e => e.ShipMobile)
+                .Property(e => e.orderID)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Order>()
+                .Property(e => e.cusPhone)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Order>()
+                .Property(e => e.orderDateTime)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Order>()
@@ -51,8 +72,16 @@ namespace QuanLyNongSan.Models
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<OrderDetail>()
-                .Property(e => e.Price)
-                .HasPrecision(18, 0);
+                .Property(e => e.ProductID)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<OrderDetail>()
+                .Property(e => e.OrderID)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<OrderDetail>()
+                .Property(e => e.ThanhTien)
+                .IsUnicode(false);
         }
     }
 }

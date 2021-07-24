@@ -11,17 +11,18 @@ namespace QuanLyNongSan.Models
     {
         [Key]
         [Column(Order = 0)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int ProductID { get; set; }
+        [StringLength(50)]
+        public string ProductID { get; set; }
 
         [Key]
         [Column(Order = 1)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int OrderID { get; set; }
+        [StringLength(20)]
+        public string OrderID { get; set; }
 
         public int? Quantity { get; set; }
 
-        public decimal? Price { get; set; }
+        [StringLength(50)]
+        public string ThanhTien { get; set; }
 
         public virtual NongSan NongSan { get; set; }
 

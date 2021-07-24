@@ -173,18 +173,17 @@
     <Compile Include="Areas\Admin\Controllers\NongSansController.cs" />
     <Compile Include="Areas\Admin\Controllers\TinTucsController.cs" />
     <Compile Include="Common\CommonConstants.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NongSanController.cs" />
-    <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\ThanhToanController.cs" />
     <Compile Include="Controllers\TinTucController.cs" />
     <Compile Include="Common\MailHelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Dao\NongSanDao.cs" />
-    <Compile Include="Models\Dao\OrderDao.cs" />
-    <Compile Include="Models\Dao\OrderDetailDao.cs" />
-    <Compile Include="Models\GioHang.cs" />
+    <Compile Include="Models\CartItem.cs" />
+    <Compile Include="Models\Custormer.cs" />
     <Compile Include="Models\LoaiN.cs" />
     <Compile Include="Models\NguoiDung.cs" />
     <Compile Include="Models\NongSan.cs" />
@@ -1571,17 +1570,15 @@
     <Content Include="Views\TinTuc\Index.cshtml" />
     <Content Include="Views\TinTuc\ChiTietTin.cshtml" />
     <Content Include="Views\Home\GioiThieu.cshtml" />
-    <Content Include="Views\Home\ThanhToan.cshtml" />
     <Content Include="Views\Home\Menu.cshtml" />
-    <Content Include="Views\Order\Index.cshtml" />
-    <Content Include="Views\Order\Payment.cshtml" />
-    <Content Include="Views\Order\Success.cshtml" />
     <Content Include="Views\Shared\HeaderCart.cshtml" />
+    <Content Include="Views\GioHang\Index.cshtml" />
+    <Content Include="Views\ThanhToan\Index.cshtml" />
+    <Content Include="Views\ThanhToan\HoaDon.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Views\GioHang\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

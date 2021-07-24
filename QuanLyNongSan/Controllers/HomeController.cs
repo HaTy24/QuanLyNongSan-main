@@ -60,10 +60,10 @@ namespace QuanLyNongSan.Controllers
         public PartialViewResult HeaderCart()
         {
             var cart = Session[CommonConstants.CartSession];
-            var list = new List<GioHang>();
+            var list = new List<CartItem>();
             if (cart != null)
             {
-                list = (List<GioHang>)cart;
+                list = (List<CartItem>)cart;
             }
 
             return PartialView(list);

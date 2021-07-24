@@ -189,3 +189,4 @@ D:\QuanLyNongSan-main\QuanLyNongSan\bin\System.Memory.xml
 D:\QuanLyNongSan-main\QuanLyNongSan\bin\System.Numerics.Vectors.xml
 D:\QuanLyNongSan-main\QuanLyNongSan\bin\System.Runtime.CompilerServices.Unsafe.xml
 D:\QuanLyNongSan-main\QuanLyNongSan\bin\System.Text.Encodings.Web.xml
+D:\QuanLyNongSan-main\QuanLyNongSan\obj\Debug\QuanLyNongSan.csproj.AssemblyReference.cache

@@ -1,10 +1,11 @@
-﻿var cart = {
+﻿
+   var cart = {
     init: function () {
         cart.regEvents();
     },
     regEvents: function () {
         $('#btnContinue').off('click').on('click', function () {
-            window.location.href = "/";
+            window.location.href = "/Home/Index";
         });
         $('#btnPayment').off('click').on('click', function () {
             window.location.href = "/Order/Payment";
@@ -89,19 +90,70 @@ jQuery(document).ready(function ($) {
         $(this).prop('selected', !$(this).prop('selected'));
         return false;
     });
-$('.giohangprice').click(function () {
-    var product_id = $(this).closest('.formsoluong').find('.idsp').val();
-    var soluong = $(this).closest('.formsoluong').find('.soluongsp').val();
+    $(".btn-themvaogio").click(function () {
+        var product_id = $(this).val();
+        $.ajax({
+            url: '/GioHang/ThemVaoGio?SanPhamID=' + product_id,
+            data: { SanPhamID: product_id },
+            success: function (data) {
+                $("body").load(location.href)
+                /*alertify.set('notifier', 'position', 'top-right');
+                alertify.success('Current position ');*/
+            },
+            error: function (data) {
+                alert('Sản phẫm lỗi');
+            }
+        });
 
-    $.ajax({
-        url: '/Order/SuaSoLuong?ID=' + product_id + '&soluongmoi=' + soluong,
-        data: { ID: product_id, soluongmoi: soluong },
-        success: function (data) {
-            $('body').load(location.href);
-        },
-        error: function (data) {
-            alert('Sản phẫm lỗi');
-        }
     });
+    $('.btn-detailthemvaogio').click(function () {
+        var product_id = $(this).val();
+        $.ajax({
+            url: '/GioHang/ThemVaoGio?SanPhamID=' + product_id,
+            data: { SanPhamID: product_id },
+            success: function (data) {
+                $(".switcher-wrapper").toggleClass("switcher-toggled")
+                $("body").load(location.href)
+            },
+            error: function (data) {
+
+                alert('Sản phẫm lỗi');
+
+            }
+        });
+
+    });
+    $('.btn-xoakhoigio').click(function () {
+        var product_id_delete = $(this).val();
+        $.ajax({
+            url: '/GioHang/XoaKhoiGio?SanPhamID=' + product_id_delete,
+            data: { SanPhamID: product_id_delete },
+            success: function (data) {
+                $(".switcher-wrapper").toggleClass("switcher-toggled")
+                $('body').load(location.href)
+            },
+            error: function (data) {
+
+                alert('Sản phẫm lỗi');
+
+            }
+        });
+
+    });
+    $('.giohangprice').click(function () {
+        var product_id = $(this).closest('.formsoluong').find('.idsp').val();
+        var soluong = $(this).closest('.formsoluong').find('.soluongsp').val();
+        $.ajax({
+            url: '/GioHang/SuaSoLuong?SanPhamID=' + product_id + '&soluongmoi=' + soluong,
+            data: { SanPhamID: product_id, soluongmoi: soluong },
+            success: function (data) {
+                $('body').load(location.href);
+            },
+            error: function (data) {
+                alert('Sản phẫm lỗi');
+            }
+        });
+    });
+
 });
-});
+

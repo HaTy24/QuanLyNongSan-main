@@ -6,32 +6,28 @@ namespace QuanLyNongSan.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Order")]
-    public partial class Order
+    public partial class Custormer
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Order()
+        public Custormer()
         {
-            OrderDetails = new HashSet<OrderDetail>();
+            Orders = new HashSet<Order>();
         }
 
-        [StringLength(20)]
-        public string orderID { get; set; }
-
+        [Key]
         [StringLength(20)]
         public string cusPhone { get; set; }
 
-        public string orderMessage { get; set; }
+        [StringLength(200)]
+        public string cusFullName { get; set; }
 
-        [StringLength(50)]
-        public string orderDateTime { get; set; }
+        [StringLength(100)]
+        public string cusEmail { get; set; }
 
-        [StringLength(50)]
-        public string orderStatus { get; set; }
-
-        public virtual Custormer Custormer { get; set; }
+        [StringLength(500)]
+        public string cusAddress { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

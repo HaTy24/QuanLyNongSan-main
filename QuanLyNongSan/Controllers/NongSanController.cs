@@ -30,7 +30,7 @@ namespace QuanLyNongSan.Controllers
             return View(ds);
         }
         [HttpGet]
-        public ActionResult ChiTietNS(int id)
+        public ActionResult ChiTietNS(string id)
         {
             var ns = db.NongSans.Where(s => s.ID == id).ToList().FirstOrDefault();
             ViewBag.nslq = db.NongSans.Where(s => s.IDLoaiNS == ns.IDLoaiNS && s.ID != ns.ID).ToList().Take(3);
