@@ -37,15 +37,12 @@
      
 
         $('#btnDeleteAll').off('click').on('click', function () {
-
-
             $.ajax({
-                url: '/Order/DeleteAll',
-                dataType: 'json',
+                url: '/GioHang/DeleteAll',
                 type: 'POST',
                 success: function (res) {
                     if (res.status == true) {
-                        window.location.href = "/Order/Index";
+                        window.location.href = "/GioHang/Index";
                     }
                 }
             })

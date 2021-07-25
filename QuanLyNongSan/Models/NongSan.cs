@@ -14,7 +14,8 @@
         {
             OrderDetails = new HashSet<OrderDetail>();
         }
-
+        [Required]
+        [Display(Name = "Mã loại nông sản")]
         [StringLength(50)]
         public string ID { get; set; }
 

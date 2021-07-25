@@ -85,5 +85,11 @@ namespace QuanLyNongSan.Controllers
             }
             return Redirect("/GioHang/Index");
         }
+        public ActionResult DeleteAll()
+        {
+            List<CartItem> giohang = Session["giohang"] as List<CartItem>;
+            giohang.Clear();
+            return Redirect("/GioHang/Index");
+        }
     }
     }

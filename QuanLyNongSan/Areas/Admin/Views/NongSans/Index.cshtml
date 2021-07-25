@@ -55,7 +55,10 @@
                         <th style="text-align:center">Chọn</th>
                         <th style="text-align:center">STT</th>
                         <th style="text-align:center">
-                            @Html.DisplayNameFor(model => model.LoaiN.TenLoai)
+                            Mã loại
+                        </th>
+                        <th style="text-align:center">
+                            Tên loại
                         </th>
                         <th>
                             @Html.DisplayNameFor(model => model.TenNS)
@@ -64,7 +67,7 @@
                             Giá
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.MoTaNgan)
+                            @Html.DisplayNameFor(model => model.NgayCapNhat)
                         </th>
                         <th>
                             @Html.DisplayNameFor(model => model.NgayTao)
@@ -81,16 +84,19 @@
                                             <td style="text-align:center"><input type="checkbox" value="@item.ID" name="id" id="id" /></td>
                                             <td style="text-align:center">@i</td>
                                             <td>
+                                                @Html.DisplayFor(modelItem => item.ID)
+                                            </td>
+                                            <td>
                                                 @Html.DisplayFor(modelItem => item.LoaiN.TenLoai)
                                             </td>
                                             <td>
                                                 @Html.ActionLink(item.TenNS, "Edit", new { id = item.ID })
                                             </td>
                                             <td>
-                                                @Html.DisplayFor(modelItem => item.Price)
+                                                @Int32.Parse(item.Price).ToString("#,##0") VNĐ
                                             </td>
                                             <td>
-                                                @Html.DisplayFor(modelItem => item.MoTaNgan)
+                                                @Html.DisplayFor(modelItem => item.NgayCapNhat)
                                             </td>
                                             <td>
                                                 @Html.DisplayFor(modelItem => item.NgayTao)

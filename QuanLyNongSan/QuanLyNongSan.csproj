@@ -168,6 +168,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\DefaultController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HoaDonController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoaiNsController.cs" />
     <Compile Include="Areas\Admin\Controllers\NguoiDungsController.cs" />
     <Compile Include="Areas\Admin\Controllers\NongSansController.cs" />
@@ -1534,6 +1535,7 @@
     <Content Include="Areas\Admin\Content\login\vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="Areas\Admin\Content\login\vendor\bootstrap\css\bootstrap.min.css.map" />
     <Content Include="Areas\Admin\Views\NongSans\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDon\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

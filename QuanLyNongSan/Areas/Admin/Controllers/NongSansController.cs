@@ -62,13 +62,13 @@ namespace QuanLyNongSan.Areas.Admin.Controllers
         }
 
         // GET: Admin/NongSans/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NongSan nongSan = db.NongSans.Find(id);
+            var nongSan = db.NongSans.SingleOrDefault(p => p.ID.Equals(id));
             if (nongSan == null)
             {
                 return HttpNotFound();
@@ -95,15 +95,26 @@ namespace QuanLyNongSan.Areas.Admin.Controllers
         }
 
         // GET: Admin/NongSans/Delete/5
-        public ActionResult Delete(int[] id)
+        public ActionResult Delete(string id)
         {
-            foreach (int i in id)
+            var model = db.NongSans.SingleOrDefault(p => p.ID.Equals(id));
+            try
             {
-                NongSan ss = db.NongSans.Find(i);
-                db.NongSans.Remove(ss);
-                db.SaveChanges();
+                if (model != null)
+                {
+                    db.NongSans.Remove(model);
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "NongSans", new { error = "Xoá sản phẩm thành công." });
+                }
+                else
+                {
+                    return RedirectToAction("Index", "NongSans", new { error = "Sản phẩm không tồn tại." });
+                }
             }
-            return RedirectToAction("Index");
+            catch (Exception)
+            {
+                return RedirectToAction("Index", "NongSans", new { error = "Không thể xoá sản phẩm." });
+            }
         }
 
 
