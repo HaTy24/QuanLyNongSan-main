@@ -15,7 +15,7 @@ namespace QuanLyNongSan.Areas.Admin.Controllers
         NongSanVN db = new NongSanVN();
         public ActionResult Index()
         {
-            var cus = db.Custormers.Find(Session["Phone"]);
+            
             var hd = db.Orders.Include(n => n.Custormer);
             return View(hd.ToList());
         }
